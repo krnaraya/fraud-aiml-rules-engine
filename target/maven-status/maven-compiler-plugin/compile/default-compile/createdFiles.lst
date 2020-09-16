@@ -1,0 +1,10 @@
+org/redhat/appdev/TransactionValidationService.class
+org/redhat/appdev/Data.class
+org/redhat/appdev/Transaction.class
+org/redhat/appdev/AutomodeDecision.class
+org/redhat/appdev/PredictFraud.class
+org/redhat/appdev/ManualmodeDecision.class
+org/redhat/appdev/PredictionResponse.class
+org/redhat/appdev/PredictService.class
+org/redhat/appdev/StreamedTransactions.class
+org/redhat/appdev/NonFraudTransactions.class
