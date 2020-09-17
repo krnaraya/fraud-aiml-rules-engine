@@ -24,18 +24,8 @@ public class PredictService {
 
         //'V3', 'V4', 'V10', 'V11', 'V12', 'V14', 'V17'
 
-        data = "{\"data\":{\"ndarray\":[[" + transaction.getV3() + "," + transaction.getV10() + "," + transaction.getV11() + "," + transaction.getV12() + "," + transaction.getV14() + "," + transaction.getV17() + "]]}}"; 
+        data = "{\"data\":{\"ndarray\":[[" + transaction.getV3() + "," + transaction.getV14() + "," + transaction.getV10() + "," + transaction.getV11() + "," + transaction.getV12() + "," + transaction.getV14() + "," + transaction.getV17() + "]]}}"; 
         
-        /*
-        if (transaction.getLocation().equalsIgnoreCase("Rest of the World")){
-            data = "{\"data\":{\"ndarray\":[[\"-4.47513271259153\",\"5.4676845487781\",\"-4.59495176285009\",\"5.27550585077254\",\"-11.3490285500915\",\"-8.13869488434773\",\"-10.2467554066001\"]]}}";
-
-        }
-        else{
-            data = "{\"data\":{\"ndarray\":[[\"0\",\"-1.3598071336738\",\"-0.0727811733098497\",\"2.53634673796914\",\"1.37815522427443\",\"-0.33832076994251803\",\"0.462387777762292\"]]}}";
-
-        }
-        */
 
         logger.info("Sending data {} to prediction service", data.toString());
         
@@ -43,14 +33,12 @@ public class PredictService {
 
         PredictionResponse predictResponse = predictFraudService.post(data);
 
-        //transaction.getLocation().equalsIgnoreCase("Rest of the World")
-
-        if (predictResponse.getData().getNdarray().get(0).contains(1.0)) {
-            logger.info("Prediction response {} came out as fraud", predictResponse.toString());
+        if (predictResponse.getData().getNdarray().get(0).get(0) < predictResponse.getData().getNdarray().get(0).get(1)) {
+            logger.info("Prediction response {} came out as fraud", predictResponse.getData().getNdarray().get(0).toString());
             transaction.setIsFraud(true);
         }
         else {
-            logger.info("Prediction response {} came out as non-fraud", predictResponse.toString());
+            logger.info("Prediction response {} came out as non-fraud", predictResponse.getData().getNdarray().get(0).toString());
             transaction.setIsFraud(false);
         }
 

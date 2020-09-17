@@ -25,7 +25,7 @@ public class NonFraudTransactions {
     @SseElementType("application/json")
     public Publisher<JsonNode> streamNonfraudtrx() {
 
-        System.out.println("transactions streaming manual mode : " + aimlnotfraudtrx );
+        System.out.println("no fraudulent transactions streaming : " + aimlnotfraudtrx );
 
         return aimlnotfraudtrx;
     }
