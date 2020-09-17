@@ -1,4 +1,4 @@
-# Fraud Rules Engine
+# Fraud AIML Rules Engine
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework and Kogito, a cloud native business automation and decision (rule) engine.
 
