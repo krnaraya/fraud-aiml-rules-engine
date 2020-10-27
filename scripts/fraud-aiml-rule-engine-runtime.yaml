@@ -1,0 +1,4 @@
+apiVersion: app.kiegroup.org/v1alpha1 # Kogito API for this service
+kind: KogitoRuntime  # Application type
+metadata:
+  name: fraud-aiml-rules-engine  # Application name

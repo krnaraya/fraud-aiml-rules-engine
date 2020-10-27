@@ -1,0 +1,8 @@
+apiVersion: app.kiegroup.org/v1alpha1 # Kogito API for this service
+kind: KogitoBuild  # Application type
+metadata:
+  name: fraud-aiml-rules-engine  # Application name
+spec:
+  type: RemoteSource
+  gitSource:
+    uri: 'https://github.com/krnaraya/fraud-aiml-rules-engine.git'  # Git repository containing 
